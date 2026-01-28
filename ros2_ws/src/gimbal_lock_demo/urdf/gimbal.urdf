@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot name="gimbal_bot">
+
+  <link name="base_link">
+    <visual>
+      <geometry><box size="0.25 0.25 0.05"/></geometry>
+    </visual>
+  </link>
+
+  <link name="yaw_link">
+    <visual>
+      <origin xyz="0 0 0.08"/>
+      <geometry><cylinder length="0.03" radius="0.12"/></geometry>
+    </visual>
+  </link>
+
+  <joint name="yaw_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="yaw_link"/>
+    <origin xyz="0 0 0.03"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="2.0" velocity="2.0"/>
+  </joint>
+
+  <link name="pitch_link">
+    <visual>
+      <origin xyz="0 0 0.08"/>
+      <geometry><cylinder length="0.03" radius="0.09"/></geometry>
+    </visual>
+  </link>
+
+  <joint name="pitch_joint" type="revolute">
+    <parent link="yaw_link"/>
+    <child link="pitch_link"/>
+    <origin xyz="0 0 0.08"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.570796" upper="1.570796" effort="2.0" velocity="2.0"/>
+  </joint>
+
+  <link name="roll_link">
+    <visual>
+      <origin xyz="0.12 0 0.08"/>
+      <geometry><box size="0.25 0.05 0.05"/></geometry>
+    </visual>
+  </link>
+
+  <joint name="roll_joint" type="revolute">
+    <parent link="pitch_link"/>
+    <child link="roll_link"/>
+    <origin xyz="0 0 0.08"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="2.0" velocity="2.0"/>
+  </joint>
+
+</robot>
+

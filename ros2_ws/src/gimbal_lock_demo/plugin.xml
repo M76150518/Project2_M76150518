@@ -1,0 +1,16 @@
+<library path="gimbal_lock_demo">
+  <class name="gimbal_lock_demo/GimbalLockDemo"
+         type="gimbal_lock_demo.rqt_gimbal_plugin.RqtGimbalPlugin"
+         base_class_type="rqt_gui_py::Plugin">
+    <description>Gimbal lock demo: control yaw/pitch/roll using Euler angles and quaternions.</description>
+
+    <qtgui>
+      <group>
+        <label>Robot Tools</label>
+      </group>
+      <label>Gimbal Lock Demo</label>
+      <statustip>Demonstrate gimbal lock using Euler vs Quaternion control.</statustip>
+    </qtgui>
+  </class>
+</library>
+
